@@ -63,11 +63,6 @@ cout<<"\n";
 }
 */
 
-
-
-
-
-
 void Registration(){
    
 
@@ -91,6 +86,65 @@ cout<<"\n";
 }
 
 
+void Forgot(){
+    int op;
+    cout<<"Press 1 to search username "<<endl;
+    cout<<"Press 2 to go back to main menu "<<endl;
+cout<<"Enter-->";
+cin>>op;
+    switch(op)
+    {
+    case 1:{
+        int count=0;
+        string fusername,fId,fpass;
+
+        cout<<"Enter username ";
+        cin>>fusername;
+        system("cls");
+
+        ifstream f2("input.txt");
+        while(f2>>fId>>fpass){
+            if(fId==fusername){
+                count=1;
+            }
+        }
+        f2.close();
+        if(count==1){
+                        cout<<"\n";
+            cout<<"\n";
+
+            cout<<"[Account is found] "<<endl;
+            cout<<"-->Your password is "<<fpass<<endl;
+            cout<<"\n";
+                        cout<<"\n";
+        }   
+        else {
+            cout<<"\n";
+            cout<<"[-----*user not found*------]";
+                        cout<<"\n";
+            cout<<"\n";
+                        cout<<"\n";
+            cout<<"\n";
+
+
+        } 
+    }
+    
+    case 2:
+                cout<<"\n";
+            cout<<"\n";
+
+    default:
+        break;
+    }
+}
+
+
+
+
+
+
+
 int main(){
 int ch;
 
@@ -104,7 +158,10 @@ cout<<"\t--> Press 1 for login "<<endl;
 
 cout<<"\t--> Press 2 for registration "<<endl;
 
-cout<<"\t--> Press 3 to exit "<<endl;
+cout<<"\t--> Press 3 to forgot password "<<endl;
+
+
+cout<<"\t--> Press 4 to exit "<<endl;
 cout <<"\t--------------------------------"<<endl;
 
 cout<<"Enter--->";
@@ -122,6 +179,10 @@ Registration();
     main();
 
     case 3:
+    Forgot();
+main();
+
+ case 4:
     break;
 
 default:
